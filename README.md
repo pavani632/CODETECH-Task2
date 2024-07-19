@@ -1,3 +1,10 @@
+**Name:** BAVIRISETTI PAVANI DURGA BHAVANI  
+**Company:** CODTECH IT SOLUTIONS  
+**ID:** CT08DS4255  
+**Domain:** Machine Learning  
+**Duration:** July to August 2024  
+**Mentor:** NEELA SANTOSH KUMAR  
+
 # Overview Of the Project
 
 ## Project:Text-to-Speech Conversion Application
