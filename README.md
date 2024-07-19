@@ -1,6 +1,7 @@
 # Overview Of the Project
 
 ## Project:Text-to-Speech Conversion Application
+![Screenshot (74)](https://github.com/user-attachments/assets/2c12236d-f071-4065-8988-fa80ede9d3c8)
 
 This project aims to develop a text-to-speech (TTS) conversion application that allows users to input text and generate corresponding audio output. The application supports multiple languages and voices, providing users with options to customize the speech synthesis according to their preferences. It leverages two TTS engines: Google Text-to-Speech (gTTS) and pyttsx3, allowing for flexibility and variety in voice and language options.
 
@@ -17,6 +18,30 @@ The main goal of this project is to create an application that can:
 - **Language Support:** Allows users to choose from various languages such as English, Spanish, Telugu, French, and German.
 - **Voice Customization:** Enables selection of different male and female voices using pyttsx3.
 - **Audio Output:** Generates and plays the audio output directly within the application.
+
+## Key Activities
+
+1. **Dataset Preparation:**
+   - Collect text samples for different languages and voices.
+   - Preprocess the text data for TTS conversion.
+
+2. **Development:**
+   - Implement functions to convert text to speech using gTTS and pyttsx3.
+   - Integrate audio format conversion using pydub.
+   - Develop a user interface for selecting TTS engine, language, and voice.
+
+3. **Testing:**
+   - Test the application with various text inputs and language options.
+   - Verify the accuracy and quality of the generated audio output.
+
+4. **Documentation:**
+   - Document the code and provide usage instructions.
+   - Create a comprehensive README file with project overview, objectives, features, and setup instructions.
+
+5. **Deployment:**
+   - Deploy the application for use in different environments.
+   - Ensure the application is accessible and easy to use for the target audience.
+
 
 ## Technologies Used:
 
