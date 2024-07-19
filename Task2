@@ -7,9 +7,7 @@ customize the speech synthesis according to their preferences.*/
 !apt-get install -y ffmpeg
 
 from gtts import gTTS
-import pyttsx3
-from pydub import AudioSegment
-from IPython.display import Audio
+from IPython.display import Audio, display
 import os
 
 # Function to convert text to speech using gTTS
@@ -23,66 +21,14 @@ def gtts_convert(text, lang='en'):
         print("Error: gTTS audio file not created.")
         return None
 
-# Function to convert text to speech using pyttsx3
-def pyttsx3_convert(text, voice_id=0):
-    engine = pyttsx3.init()
-    voices = engine.getProperty('voices')
-    if voice_id < 0 or voice_id >= len(voices):
-        print("Invalid voice ID. Using default voice.")
-        voice_id = 0
-    engine.setProperty('voice', voices[voice_id].id)
-    engine.save_to_file(text, 'output.wav')
-    engine.runAndWait()
-    if os.path.exists("output.wav"):
-        print("pyttsx3 audio file created successfully.")
-        # Convert WAV to MP3
-        audio = AudioSegment.from_wav("output.wav")
-        audio.export("output.mp3", format="mp3")
-        return Audio("output.mp3", autoplay=True)
-    else:
-        print("Error: pyttsx3 audio file not created.")
-        return None
-
-# Function to list available voices in pyttsx3
-def list_pyttsx3_voices():
-    engine = pyttsx3.init()
-    voices = engine.getProperty('voices')
-    male_voices = []
-    female_voices = []
-    for index, voice in enumerate(voices):
-        if "female" in voice.name.lower():
-            female_voices.append((index, voice.name, voice.languages))
-        else:
-            male_voices.append((index, voice.name, voice.languages))
-    print("Male Voices:")
-    for index, name, languages in male_voices:
-        print(f"Voice {index}: {name} - Languages: {languages}")
-    print("Female Voices:")
-    for index, name, languages in female_voices:
-        print(f"Voice {index}: {name} - Languages: {languages}")
-
 # Main function to handle user interaction
 def main():
     print("Welcome to the Text-to-Speech Converter")
-    choice = input("Choose engine (1: gTTS, 2: pyttsx3): ")
-
     text = input("Enter the text to convert to speech: ")
 
-    if choice == '1':
-        print("Available languages: en (English), es (Spanish), te (Telugu), fr (French), de (German)")
-        lang = input("Enter the language code (e.g., 'en' for English, 'es' for Spanish, 'te' for Telugu, 'fr' for French, 'de' for German): ")
-        return gtts_convert(text, lang)
-    elif choice == '2':
-        list_pyttsx3_voices()
-        try:
-            voice_id = int(input("Enter the voice ID you want to use: "))
-        except ValueError:
-            print("Invalid input. Using default voice.")
-            voice_id = 0
-        return pyttsx3_convert(text, voice_id)
-    else:
-        print("Invalid choice. Please choose 1 or 2.")
-        return None
+    print("Available languages: en (English), es (Spanish), te (Telugu), fr (French), de (German)")
+    lang = input("Enter the language code (e.g., 'en' for English, 'es' for Spanish, 'te' for Telugu, 'fr' for French, 'de' for German): ")
+    return gtts_convert(text, lang)
 
 if __name__ == "__main__":
     audio = main()
